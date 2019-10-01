@@ -1,21 +1,38 @@
 function fetchProducts(done) {
-   $.get('/api/products', (data) => {
-      done(data)
-   })
+  $.get("/api/products", data => {
+    done(data);
+  });
 }
 
 function addProduct(name, manuf, price, done) {
-   $.post('/api/products', {
+  $.post(
+    "/api/products",
+    {
       name: name,
       manufacturer: manuf,
       price: price
-   }, (data) => {
-      done(data)
-   })
+    },
+    data => {
+      done(data);
+    }
+  );
+}
+function addProductdemo(name, manuf, price, done) {
+  $.post(
+    "/api/products",
+    {
+      name: name,
+      manufacturer: manuf,
+      price: price
+    },
+    data => {
+      done(data);
+    }
+  );
 }
 
 function createProductCard(product) {
-   return $(`
+  return $(`
          <div class="col-4 card mx-2 p-2">
             <div class="product-name"> ${product.name} </div>
             <div class="product-manufacturer">${product.manufacturer} </div>
@@ -26,5 +43,5 @@ function createProductCard(product) {
                <button class="col btn-primary m-3">Buy</button>
             </div>
         </div>
-   `)
+   `);
 }
